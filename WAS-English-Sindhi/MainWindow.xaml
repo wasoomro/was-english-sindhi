@@ -1,0 +1,88 @@
+﻿<Window Closed="Window_Closed" x:Class="WAS_English_Sindhi.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WAS_English_Sindhi"
+        mc:Ignorable="d"
+        Title="WAS English To Sindhi Dictionary" Height="480" Width="640"
+        
+        >
+    <Grid Margin="5" Background="white">
+        <!-- Column Definitions
+             Column 1 = For Search And Index
+             Column 2 = For GridSplitter
+             Column 3 = For Actual Term
+        -->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="5" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <!--  Grid Row Definitions -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="43" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!--  Column 0  Row 0 (Label)-->
+        <Label VerticalContentAlignment="Center" HorizontalContentAlignment="center" Background="#FF008BFF" Foreground="White" Grid.Column="0" Grid.Row="0" x:Name="searchLabel" Content="Search And Index" FontSize="14" FontWeight="Medium" />
+
+        <!--  Column 0  Row 1 (SearchBox)-->
+
+        <Grid Grid.Column="0" Grid.Row="1" Margin="5,10,5,0"  >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="43" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox  KeyDown="searchBox_KeyDown" VerticalContentAlignment="Center" Grid.Column="0" x:Name="searchBox" />
+            <Button Click="searchButton_Click" x:Name="searchButton" Content="GO" Grid.Column="1"  Width="43" HorizontalAlignment="Right" />
+
+        </Grid>
+        <ListBox  SelectionChanged="indexBox_SelectionChanged" x:Name="indexBox"  Grid.RowSpan="2" Grid.Column="0" Margin="5,10,5,2" Grid.Row="2"/>
+
+
+
+        <!--  Column 1 Splitter for resizing -->
+        <GridSplitter  Grid.Column="1" Grid.Row="0" Grid.RowSpan="4" HorizontalAlignment="Stretch" />
+        
+        <!-- Column 1 -->
+        <Border BorderThickness="0,0,0,2" BorderBrush="Black" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Grid.Row="0">
+            <StackPanel Orientation="Horizontal" >
+                <Label  Padding="5,0,0,0" Margin="0,-2,8,0" Foreground="Black"  x:Name="wordText" Content="Search And Index" FontSize="32" FontWeight="Bold"  />
+
+                <Image Source="sound.png" MouseDown="Image_MouseDown" Width="32" Height="32" Margin="0,5,0,0" x:Name="soundIcon" />
+
+            </StackPanel>
+        </Border>
+
+        <TabControl Margin="0,10,0,2" x:Name="dicTab" Grid.Column="2" Grid.Row="1" Grid.RowSpan="3">
+            <TabItem Header="General" x:Name="en_sin_tab">
+                <Grid >
+                    <ListView x:Name="en_sin_list" FlowDirection="RightToLeft" FontSize="16" FontWeight="Bold" Padding="5" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Commerce Banking" x:Name="cbank_tab">
+                <Grid >
+                    <ListView x:Name="cbank_list" FlowDirection="RightToLeft" FontSize="16" FontWeight="Bold" Padding="5" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Geography" x:Name="geog_sin_tab">
+                <Grid >
+                    <ListView x:Name="geog_sin_list" FlowDirection="RightToLeft" FontSize="16" FontWeight="Bold" Padding="5" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Official Terms" x:Name="off_term_tab">
+                <Grid >
+                    <ListView x:Name="off_term_list" FlowDirection="RightToLeft" FontSize="16" FontWeight="Bold" Padding="5" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+
+    </Grid>
+</Window>
