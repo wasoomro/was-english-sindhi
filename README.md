@@ -18,6 +18,11 @@ WAS ENGLISH TO SINDHI DICTIONARY Application is a .net dictionary application ba
 
 ![2](https://user-images.githubusercontent.com/22234795/32102505-0fdad9f2-bb36-11e7-910a-0f1f3d4c9923.PNG)
 
+## Requirements:
+
+- Windows Operating System
+- .Net Framework 4 or later
+
 
 ## License
 
